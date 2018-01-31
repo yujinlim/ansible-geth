@@ -7,9 +7,9 @@
     - wget
     - tar
 - name: download geth
-  shell: "wget -qO- {{ geth_url }} | tar xvz -C {{ geth_dir }}"
+  shell: "wget -qO- {{ geth_url }}/{{ geth_version }}.tar.gz | tar xvz -C {{ geth_dir }}"
   args:
-    creates: "{{ geth_dir }}"
+    creates: "{{ geth_dir }}/{{ geth_version }}"
 - name: setup unit service
   template:
     src: templates/service.jinja2
